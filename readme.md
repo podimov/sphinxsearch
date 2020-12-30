@@ -1,7 +1,7 @@
 Sphinx Search for Laravel 8 - Custom build with snippets support 
 =======================
 Simple Laravel 8 package for make queries to Sphinx Search.
-Inspired by scalia/sphinxsearch package for Laravel 4.
+Inspired by sngrl/sphinxsearch package for Laravel 5.
 
 This package was created to import to the site packagist.org and allow installation through Composer (https://getcomposer.org/).
 
@@ -12,24 +12,28 @@ Require this package in your composer.json:
  
 ```php
 	"require": {
-        /*** Some others packages ***/
-		"sngrl/sphinxsearch": "dev-master",
+            /*** Some others packages ***/
+            "podimov/sphinxsearch": "dev-master",
+	},
+```
+
+```php
+	"repositories": {
+            /*** Some others repositories ***/
+            "sphinxsearch": {
+                "type": "vcs",
+                "url": "https://github.com/podimov/sphinxsearch"
+            }
 	},
 ```
 
 Run in your console `composer update` command to pull down the latest version of Sphinx Search.
 
 
-Or just run this in console:
-
-```php
-composer require sngrl/sphinxsearch:dev-master
-```
-
 After updating composer, add the ServiceProvider to the "providers" array in config/app.php:
 
 ```php
-	'providers' => array(
+    'providers' => array(
         /*** Some others providers ***/
         sngrl\SphinxSearch\SphinxSearchServiceProvider::class,
     ),
